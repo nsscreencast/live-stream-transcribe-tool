@@ -94,36 +94,12 @@ extension OrderListViewController : NSTableViewDataSource {
         return orders?.count ?? 0
     }
     
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        guard let columnIdentifier = tableColumn?.identifier else { return nil }
-        guard let order = orders?[row] else { return nil }
-        
-        switch columnIdentifier.rawValue {
-        case "orderNumber":
-            let view = tableView.makeView(withIdentifier: columnIdentifier, owner: tableView) as? NSTableCellView
-            view?.textField?.stringValue = order.orderNumber
-            return view
-            
-        case "clientRef":
-            let view = tableView.makeView(withIdentifier: columnIdentifier, owner: tableView) as? NSTableCellView
-            view?.textField?.stringValue = order.clientRef ?? ""
-            return view
-            
-        case "status":
-            let view = tableView.makeView(withIdentifier: columnIdentifier, owner: tableView) as? NSTableCellView
-            view?.textField?.stringValue = order.status
-            return view
-            
-        case "price":
-            let view = tableView.makeView(withIdentifier: columnIdentifier, owner: tableView) as? NSTableCellView
-            
-            view?.textField?.stringValue = formatter.string(for: order.price) ?? ""
-            return view
-            
-        default: return nil
-        }
-        
-        
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        guard let orders = orders else { return nil }
+        guard row >= 0 && row < orders.count else { return nil }
+        let order = orders[row]
+        let rowModel = OrderTableRow(order: order)
+        return rowModel
     }
 }
 

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A59B5DB88A3C4E66D486030 /* Pods_TranscribeTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69502E62CA09C7C4CF5AD95 /* Pods_TranscribeTool.framework */; };
+		B53CDF8B20AF3EDE00FE921A /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CDF8A20AF3EDE00FE921A /* PreferencesViewController.swift */; };
+		B53CDF8D20AF3F1D00FE921A /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CDF8C20AF3F1C00FE921A /* Preferences.swift */; };
+		B53CDF8F20AF41DC00FE921A /* OrderTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CDF8E20AF41DC00FE921A /* OrderTableRow.swift */; };
+		B53CDF9220AF48DB00FE921A /* NewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CDF9120AF48DB00FE921A /* NewOrderViewController.swift */; };
+		B53CDF9420AF4C7E00FE921A /* AddInputURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CDF9320AF4C7E00FE921A /* AddInputURLViewController.swift */; };
+		B53CDF9620AF528900FE921A /* OrderInputTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CDF9520AF528900FE921A /* OrderInputTableRow.swift */; };
 		B5B524EB209CCA3E00A837F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B524EA209CCA3E00A837F6 /* AppDelegate.swift */; };
 		B5B524ED209CCA3E00A837F6 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B524EC209CCA3E00A837F6 /* OrderListViewController.swift */; };
 		B5B524EF209CCA3E00A837F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5B524EE209CCA3E00A837F6 /* Assets.xcassets */; };
@@ -32,6 +39,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		42F46DF9ED33C22D795D7452 /* Pods-TranscribeTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranscribeTool.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-TranscribeTool/Pods-TranscribeTool.debug.xcconfig"; sourceTree = "<group>"; };
+		5C7F917E1E660DFF744FDAC1 /* Pods-TranscribeTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranscribeTool.release.xcconfig"; path = "../Pods/Target Support Files/Pods-TranscribeTool/Pods-TranscribeTool.release.xcconfig"; sourceTree = "<group>"; };
+		A69502E62CA09C7C4CF5AD95 /* Pods_TranscribeTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TranscribeTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B53CDF8A20AF3EDE00FE921A /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		B53CDF8C20AF3F1C00FE921A /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		B53CDF8E20AF41DC00FE921A /* OrderTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableRow.swift; sourceTree = "<group>"; };
+		B53CDF9120AF48DB00FE921A /* NewOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderViewController.swift; sourceTree = "<group>"; };
+		B53CDF9320AF4C7E00FE921A /* AddInputURLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInputURLViewController.swift; sourceTree = "<group>"; };
+		B53CDF9520AF528900FE921A /* OrderInputTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInputTableRow.swift; sourceTree = "<group>"; };
 		B5B524E7209CCA3E00A837F6 /* TranscribeTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranscribeTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B524EA209CCA3E00A837F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5B524EC209CCA3E00A837F6 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
@@ -50,18 +66,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5B52521209CD69600A837F6 /* RevKit.framework in Frameworks */,
+				4A59B5DB88A3C4E66D486030 /* Pods_TranscribeTool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B53CDF8920AF3ED200FE921A /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				B53CDF8C20AF3F1C00FE921A /* Preferences.swift */,
+				B53CDF8A20AF3EDE00FE921A /* PreferencesViewController.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		B53CDF9020AF48CE00FE921A /* New Order */ = {
+			isa = PBXGroup;
+			children = (
+				B53CDF9120AF48DB00FE921A /* NewOrderViewController.swift */,
+				B53CDF9320AF4C7E00FE921A /* AddInputURLViewController.swift */,
+				B53CDF9520AF528900FE921A /* OrderInputTableRow.swift */,
+			);
+			path = "New Order";
+			sourceTree = "<group>";
+		};
 		B5B524DE209CCA3D00A837F6 = {
 			isa = PBXGroup;
 			children = (
 				B5B524E9209CCA3E00A837F6 /* TranscribeTool */,
 				B5B524E8209CCA3E00A837F6 /* Products */,
 				B5B5251E209CD68400A837F6 /* Frameworks */,
+				F1C2CD2147C4DC7CC5F6DCCE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,7 +113,9 @@
 		B5B524E9209CCA3E00A837F6 /* TranscribeTool */ = {
 			isa = PBXGroup;
 			children = (
+				B53CDF8920AF3ED200FE921A /* Preferences */,
 				B5B524FA209CD37B00A837F6 /* Orders List */,
+				B53CDF9020AF48CE00FE921A /* New Order */,
 				B5B524EA209CCA3E00A837F6 /* AppDelegate.swift */,
 				B5B524EE209CCA3E00A837F6 /* Assets.xcassets */,
 				B5B524F0209CCA3E00A837F6 /* Main.storyboard */,
@@ -92,6 +131,7 @@
 			children = (
 				B5B524FB209CD38500A837F6 /* OrderListWindowController.swift */,
 				B5B524EC209CCA3E00A837F6 /* OrderListViewController.swift */,
+				B53CDF8E20AF41DC00FE921A /* OrderTableRow.swift */,
 			);
 			path = "Orders List";
 			sourceTree = "<group>";
@@ -100,8 +140,18 @@
 			isa = PBXGroup;
 			children = (
 				B5B5251F209CD68400A837F6 /* RevKit.framework */,
+				A69502E62CA09C7C4CF5AD95 /* Pods_TranscribeTool.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1C2CD2147C4DC7CC5F6DCCE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42F46DF9ED33C22D795D7452 /* Pods-TranscribeTool.debug.xcconfig */,
+				5C7F917E1E660DFF744FDAC1 /* Pods-TranscribeTool.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,10 +161,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5B524F7209CCA3E00A837F6 /* Build configuration list for PBXNativeTarget "TranscribeTool" */;
 			buildPhases = (
+				A6D8B0F5AC98F0CAA9138B25 /* [CP] Check Pods Manifest.lock */,
 				B5B524E3209CCA3E00A837F6 /* Sources */,
 				B5B524E4209CCA3E00A837F6 /* Frameworks */,
 				B5B524E5209CCA3E00A837F6 /* Resources */,
 				B5B52523209CD69600A837F6 /* Embed Frameworks */,
+				BD461E8F24B6D8B49BB10A0F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,12 +227,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A6D8B0F5AC98F0CAA9138B25 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TranscribeTool-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD461E8F24B6D8B49BB10A0F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-TranscribeTool/Pods-TranscribeTool-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-TranscribeTool/Pods-TranscribeTool-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B5B524E3209CCA3E00A837F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B53CDF9420AF4C7E00FE921A /* AddInputURLViewController.swift in Sources */,
+				B53CDF9620AF528900FE921A /* OrderInputTableRow.swift in Sources */,
+				B53CDF8B20AF3EDE00FE921A /* PreferencesViewController.swift in Sources */,
+				B53CDF8F20AF41DC00FE921A /* OrderTableRow.swift in Sources */,
 				B5B524FC209CD38500A837F6 /* OrderListWindowController.swift in Sources */,
+				B53CDF8D20AF3F1D00FE921A /* Preferences.swift in Sources */,
+				B53CDF9220AF48DB00FE921A /* NewOrderViewController.swift in Sources */,
 				B5B524ED209CCA3E00A837F6 /* OrderListViewController.swift in Sources */,
 				B5B524FE209CD46B00A837F6 /* RevCredentials.swift in Sources */,
 				B5B524EB209CCA3E00A837F6 /* AppDelegate.swift in Sources */,
@@ -316,6 +413,7 @@
 		};
 		B5B524F8209CCA3E00A837F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42F46DF9ED33C22D795D7452 /* Pods-TranscribeTool.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TranscribeTool/TranscribeTool.entitlements;
@@ -335,6 +433,7 @@
 		};
 		B5B524F9209CCA3E00A837F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C7F917E1E660DFF744FDAC1 /* Pods-TranscribeTool.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TranscribeTool/TranscribeTool.entitlements;

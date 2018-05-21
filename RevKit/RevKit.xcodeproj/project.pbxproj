@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B519133120A1D25C00E89E1F /* OrderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519133020A1D25C00E89E1F /* OrderDetail.swift */; };
 		B5B5250E209CD65500A837F6 /* RevKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B5250C209CD65500A837F6 /* RevKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5B52519209CD66500A837F6 /* CaptionFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B52514209CD66500A837F6 /* CaptionFormats.swift */; };
 		B5B5251A209CD66500A837F6 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B52515209CD66500A837F6 /* Order.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B519133020A1D25C00E89E1F /* OrderDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetail.swift; sourceTree = "<group>"; };
 		B5B52509209CD65500A837F6 /* RevKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RevKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B5250C209CD65500A837F6 /* RevKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RevKit.h; sourceTree = "<group>"; };
 		B5B5250D209CD65500A837F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				B5B52514209CD66500A837F6 /* CaptionFormats.swift */,
 				B5B52515209CD66500A837F6 /* Order.swift */,
+				B519133020A1D25C00E89E1F /* OrderDetail.swift */,
 				B5B52516209CD66500A837F6 /* OrderParams.swift */,
 				B5B52517209CD66500A837F6 /* PagedOrders.swift */,
 				B5B52524209CD73C00A837F6 /* RevClient.swift */,
@@ -149,6 +152,7 @@
 				B5B5251C209CD66500A837F6 /* PagedOrders.swift in Sources */,
 				B5B5251A209CD66500A837F6 /* Order.swift in Sources */,
 				B5B5251B209CD66500A837F6 /* OrderParams.swift in Sources */,
+				B519133120A1D25C00E89E1F /* OrderDetail.swift in Sources */,
 				B5B52519209CD66500A837F6 /* CaptionFormats.swift in Sources */,
 				B5B52525209CD73C00A837F6 /* RevClient.swift in Sources */,
 			);

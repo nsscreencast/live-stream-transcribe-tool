@@ -8,10 +8,57 @@
 
 import Foundation
 
-let RevKitErrorDomain = "RevKitErrorDomain"
-struct RevKitErrorCodes {
-    static let requestFailed = 1000
-    static let unexpectedBehavior = 1001
+public struct RevKitError {
+    
+    struct Codes {
+        static let requestFailed = 1000
+        static let unexpectedBehavior = 1001
+        static let notFound = 1002
+        static let serverError = 1003
+    }
+    
+    struct Response : Decodable {
+        let code: Int
+        let message: String
+        
+        var error: NSError {
+            return NSError(domain: RevKitError.domain,
+                           code: code,
+                           userInfo: [
+                            NSLocalizedFailureReasonErrorKey: message
+                    ])
+        }
+    }
+
+    static var domain: String = "RevKitErrorDomain"
+    
+    static func resourceNotFound(url: URL) -> NSError {
+        return NSError(domain: domain, code: Codes.notFound,
+                       userInfo: [
+                        NSURLErrorFailingURLErrorKey: url,
+                        NSLocalizedFailureReasonErrorKey: "The resource was not found.",
+                        NSLocalizedDescriptionKey: "Could not find the requested item.",
+                        NSLocalizedRecoverySuggestionErrorKey: "Try refreshing your data."
+            ])
+    }
+    
+    static func serverError(url: URL) -> NSError {
+        return NSError(domain: domain, code: Codes.serverError,
+                       userInfo: [
+                        NSURLErrorFailingURLErrorKey: url,
+                        NSLocalizedFailureReasonErrorKey: "The server encountered an error.",
+                        NSLocalizedDescriptionKey: "Server Error",
+                        NSLocalizedRecoverySuggestionErrorKey: "Try your request again later."
+            ])
+    }
+    
+    static func unexpectedError(failureReason: String? = nil) -> NSError {
+        return NSError(domain: domain, code: Codes.serverError,
+                       userInfo: [
+                        NSLocalizedDescriptionKey: "An unexpected error occurred",
+                        NSLocalizedFailureReasonErrorKey: failureReason ?? "(no reason given)"
+            ])
+    }
 }
 
 public enum RevEnvironment : String {
@@ -50,7 +97,7 @@ public class RevClient {
         self.environment = environment
     }
     
-    public func uploadInput(from remoteURL: URL, filename: String? = nil, contentType: String, completion: @escaping (Result<String>) -> Void) {
+    public func uploadInput(from remoteURL: URL, filename: String? = nil, contentType: String? = nil, completion: @escaping (Result<String>) -> Void) {
         let url = environment.baseURL.appendingPathComponent("inputs")
         
         var request = URLRequest(url: url)
@@ -59,53 +106,20 @@ public class RevClient {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let uploadedFilename = filename ?? remoteURL.lastPathComponent
-        let body: [String: String] = [
+        var body: [String: String] = [
             "filename": uploadedFilename,
-            "content_type": contentType,
             "url": remoteURL.absoluteString
         ]
+        if let contentType = contentType {
+            body["content_type"] = contentType
+        }
+        
         let data = try! JSONSerialization.data(withJSONObject: body, options: [])
         request.httpBody = data
-//        
-//        print("Request info")
-//        print("-------------------------------------------------------")
-//        print("URL: \(request.url!.absoluteString)")
-//        print("Method: \(request.httpMethod!)")
-//        print("Request headers: \(request.allHTTPHeaderFields!)")
-//        print("Body: \(String(data: data, encoding: .utf8)!)")
-//        print(remoteURL.absoluteString)
-//        print("-------------------------------------------------------")
-//        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            guard error == nil else {
-                print("ERROR: \(error!)")
-                self.dispatchResult(result: .failed(error!), completion: completion)
-                return
-            }
-            let http = response as! HTTPURLResponse
-            switch http.statusCode {
-            case 201:
-                if let location = http.allHeaderFields["Location"] as? String {
-                    self.dispatchResult(result: .success(location), completion: completion)
-                } else {
-                    assertionFailure("Location response header was not found")
-                    let error = NSError(domain: RevKitErrorDomain, code: RevKitErrorCodes.unexpectedBehavior, userInfo: [
-                        NSLocalizedFailureReasonErrorKey: "The server indicated success, but did not include the expected response.",
-                        "Response": http,
-                        "Body": data.flatMap { String(data: $0, encoding: .utf8) } ?? "<?>"
-                        ])
-                    self.dispatchResult(result: .failed(error), completion: completion)
-                }
-            default:
-                print("Received HTTP \(http.statusCode)")
-                let error = NSError(domain: RevKitErrorDomain, code: RevKitErrorCodes.requestFailed, userInfo: [
-                    NSLocalizedFailureReasonErrorKey: "The request failed.",
-                    "Response": http
-                    ])
-                self.dispatchResult(result: .failed(error), completion: completion)
-            }
-        }
-        task.resume()
+        
+        execute(request: request, httpSuccess: { (http, data) -> Result<String> in
+            return self.extractHTTPLocation(http: http)
+        }, completion: completion)
     }
     
     public func submitOrder<Params : OrderParams>(params: Params, completion: @escaping (Result<String>) -> Void) {
@@ -118,6 +132,57 @@ public class RevClient {
         encoder.keyEncodingStrategy = .convertToSnakeCase
         let data = try! encoder.encode(params)
         request.httpBody = data
+        
+        execute(request: request, httpSuccess: { (http, data) -> Result<String> in
+            return self.extractHTTPLocation(http: http)
+        }, completion: completion)
+    }
+    
+    public func getAllOrders(completion: @escaping (Result<PagedOrders>) -> Void) {
+        let url = environment.baseURL.appendingPathComponent("orders")
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30)
+        addAuthorizationHeader(&request)
+        executeJSONRequest(request: request, completion: completion)
+    }
+    
+    public func getOrderDetail(orderNum: String, completion: @escaping (Result<OrderDetail>) -> Void) {
+        let url = environment.baseURL.appendingPathComponent("orders/\(orderNum)")
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30)
+        addAuthorizationHeader(&request)
+        executeJSONRequest(request: request, completion: completion)
+    }
+    
+    private func executeJSONRequest<T : Decodable>(request: URLRequest, completion: @escaping (Result<T>) -> Void) {
+        execute(request: request, httpSuccess: { (http, data) -> Result<T> in
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale.current
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                                     //"2018-05-03T21:12:43.483Z"
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            decoder.dateDecodingStrategy = .custom({ d in
+                let container = try d.singleValueContainer()
+                let stringValue = try container.decode(String.self)
+                print("date string: \(stringValue)")
+                return dateFormatter.date(from: stringValue)!
+            })
+            do {
+                let body = String(data: data, encoding: .utf8) ?? "<no body>"
+                print("Response: \n\n\n\(body)\n\n\n")
+                let parsedObject = try decoder.decode(T.self, from: data)
+                return .success(parsedObject)
+            } catch let e {
+                let body = String(data: data, encoding: .utf8) ?? "<no body>"
+                print("Couldn't parse json: \(e)")
+                print("Response: \(body)")
+                return .failed(e)
+            }
+        }, completion: completion)
+    }
+    
+    private func execute<T>(request: URLRequest, httpSuccess: @escaping (HTTPURLResponse, Data) -> Result<T>, completion: @escaping (Result<T>) -> Void) {
         let task = session.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
                 print("ERROR: \(error!)")
@@ -126,66 +191,23 @@ public class RevClient {
             }
             let http = response as! HTTPURLResponse
             switch http.statusCode {
-            case 201:
-                if let location = http.allHeaderFields["Location"] as? String {
-                    self.dispatchResult(result: .success(location), completion: completion)
-                } else {
-                    assertionFailure("Location response header was not found")
-                    let error = NSError(domain: RevKitErrorDomain, code: RevKitErrorCodes.unexpectedBehavior, userInfo: [
-                        NSLocalizedFailureReasonErrorKey: "The server indicated success, but did not include the expected response.",
-                        "Response": http
-                        ])
-                    self.dispatchResult(result: .failed(error), completion: completion)
-                }
+            case 200...201:
+                let result = httpSuccess(http, data!)
+                self.dispatchResult(result: result, completion: completion)
+            case 400:
+                let error = self.extractAPIError(http: http, data: data!)
+                self.dispatchResult(result: .failed(error), completion: completion)
+            case 404:
+                let error = RevKitError.resourceNotFound(url: request.url!)
+                self.dispatchResult(result: .failed(error), completion: completion)
             default:
-                print("Received HTTP \(http.statusCode)")
-                let error = NSError(domain: RevKitErrorDomain, code: RevKitErrorCodes.requestFailed, userInfo: [
-                    NSLocalizedFailureReasonErrorKey: "The request failed.",
-                    "Response": http
-                    ])
+                print("HTTP \(http.statusCode) from \(request.url!)")
+                let body = String(data: data!, encoding: .utf8)!
+                print(body)
+                let error = RevKitError.unexpectedError()
                 self.dispatchResult(result: .failed(error), completion: completion)
             }
         }
-        task.resume()
-    }
-    
-    public func getAllOrders(completion: @escaping (Result<PagedOrders>) -> Void) {
-        let url = environment.baseURL.appendingPathComponent("orders")
-        
-        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30)
-        addAuthorizationHeader(&request)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print("Error loading orders: \(error)")
-                self.dispatchResult(result: .failed(error), completion: completion)
-            } else {
-                let http = response as! HTTPURLResponse
-                switch http.statusCode {
-                case 200:
-                    print("Loaded orders...")
-                    let body = String(data: data!, encoding: .utf8)!
-                    
-                    let decoder = JSONDecoder()
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    do {
-                        let pagedOrders = try decoder.decode(PagedOrders.self, from: data!)
-                        self.dispatchResult(result: .success(pagedOrders), completion: completion)
-                    } catch let e {
-                        print("Couldn't parse json: \(e)")
-                        print("Response: \(body)")
-                        self.dispatchResult(result: .failed(e), completion: completion)
-                    }
-                    
-                default:
-                    print("HTTP \(http.statusCode) from \(url)")
-                    let body = String(data: data!, encoding: .utf8)!
-                    print(body)
-                    let error = NSError(domain: "TranscribeToolErrorDomain", code: 100, userInfo: [:])
-                    self.dispatchResult(result: .failed(error), completion: completion)
-                }
-            }
-        }
-        print("HTTP GET \(url)")
         task.resume()
     }
     
@@ -199,5 +221,22 @@ public class RevClient {
         request.setValue("Rev \(clientKey):\(userKey)", forHTTPHeaderField: "Authorization")
     }
     
+    private func extractHTTPLocation(http: HTTPURLResponse) -> Result<String> {
+        guard let location = http.allHeaderFields["Location"] as? String else {
+            assertionFailure("Location response header was not found")
+            let error = RevKitError.unexpectedError(failureReason: "The server indicated success, but did not include the expected response.")
+            return .failed(error)
+        }
+        return .success(location)
+    }
     
+    private func extractAPIError(http: HTTPURLResponse, data: Data) -> Error {
+        do {
+            let decoder = JSONDecoder()
+            let response = try decoder.decode(RevKitError.Response.self, from: data)
+            return response.error
+        } catch {
+            return RevKitError.unexpectedError()
+        }
+    }
 }
