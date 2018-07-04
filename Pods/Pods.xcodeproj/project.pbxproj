@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		01E77006C63115B7A20A9A10512DB227 /* SAMKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4750DDEBB30FCFB4FA63C2BC37A4214D /* SAMKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0DCD6A5EB897125164AD08E5527EDA8B /* Pods-TranscribeTool-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CCA55339C4DEBE02FA21C85B1B3113E4 /* Pods-TranscribeTool-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		17A8A6B862F037ECE8FCEB445B8D4FBA /* SAMKeychain-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BC59FEF4CEC8927935FB060EA723CCF /* SAMKeychain-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0DCD6A5EB897125164AD08E5527EDA8B /* Pods-TranscribeTool-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5824F9D1BD8C45F75D3214BEE06871B /* Pods-TranscribeTool-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17A8A6B862F037ECE8FCEB445B8D4FBA /* SAMKeychain-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A557F07B874ED63FA6A1AB15318FA9B /* SAMKeychain-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46F59EADC61E2F92348C1209E7436F2B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691799C6CDFAF0BDB6E6FD36DB19A1BB /* Security.framework */; };
-		51567AAC2D198E4E5BC47DC018ECC76E /* SAMKeychain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3AA0C8ACEBC012D1A1A08D3EFF6CB /* SAMKeychain-dummy.m */; };
+		51567AAC2D198E4E5BC47DC018ECC76E /* SAMKeychain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBC20F75178423E706001F40588F9B /* SAMKeychain-dummy.m */; };
 		5FEA0C912BFA7BE9E622AE2EE3E37CFA /* SAMKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DB29B6CE6347CBCC6F89D831B89EE /* SAMKeychainQuery.m */; };
-		7210F2046E106A797B6CAA583AAA9CD9 /* Pods-TranscribeTool-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4813D0A0C0AC3286554F4B2A77563B40 /* Pods-TranscribeTool-dummy.m */; };
+		7210F2046E106A797B6CAA583AAA9CD9 /* Pods-TranscribeTool-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A5462137A5155DCDE75302E0B75EBAEB /* Pods-TranscribeTool-dummy.m */; };
 		7EC37732770864EB45F31894E2830370 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90EBA712A3F1CF3A254392C6EFF969F /* Cocoa.framework */; };
 		80923A09F47BD2BED62F6A848E9B781B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2029E2FA1979CE7174EE53F228F01CE /* Foundation.framework */; };
 		8E943B3ED6BF164C652879E1C9FB80AB /* SAMKeychain.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D413D76727073737DAA57CA60C778547 /* SAMKeychain.bundle */; };
@@ -33,32 +33,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0566FDDEFF3EAE0C1AADB4140F1BDCC5 /* Pods-TranscribeTool-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TranscribeTool-acknowledgements.plist"; sourceTree = "<group>"; };
+		1E6D5BF425A07663C1CE7E900359B00E /* Pods-TranscribeTool-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TranscribeTool-acknowledgements.plist"; sourceTree = "<group>"; };
 		1F034B27064FF8E4018C72896F1D15CE /* SAMKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SAMKeychain.h; path = Sources/SAMKeychain.h; sourceTree = "<group>"; };
-		25E7355ED839DE64F30579B714E40C2A /* Pods-TranscribeTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TranscribeTool.release.xcconfig"; sourceTree = "<group>"; };
-		27562A7185C4E7C3F0BE269E0BDC5C71 /* SAMKeychain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SAMKeychain.modulemap; sourceTree = "<group>"; };
-		3B14BCADA974D7F7D1948106FBB65C69 /* Pods-TranscribeTool-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TranscribeTool-frameworks.sh"; sourceTree = "<group>"; };
-		3C31C72DF6CCBA46F3640A60F4E6470D /* Pods-TranscribeTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TranscribeTool.debug.xcconfig"; sourceTree = "<group>"; };
+		29AD2784333C1839895C414892E2D112 /* SAMKeychain-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SAMKeychain-Info.plist"; sourceTree = "<group>"; };
+		2D62D6F58183A64861142C63B69FB783 /* Pods-TranscribeTool.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TranscribeTool.modulemap"; sourceTree = "<group>"; };
+		3A557F07B874ED63FA6A1AB15318FA9B /* SAMKeychain-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SAMKeychain-umbrella.h"; sourceTree = "<group>"; };
 		467DB29B6CE6347CBCC6F89D831B89EE /* SAMKeychainQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAMKeychainQuery.m; path = Sources/SAMKeychainQuery.m; sourceTree = "<group>"; };
 		4750DDEBB30FCFB4FA63C2BC37A4214D /* SAMKeychainQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SAMKeychainQuery.h; path = Sources/SAMKeychainQuery.h; sourceTree = "<group>"; };
-		4813D0A0C0AC3286554F4B2A77563B40 /* Pods-TranscribeTool-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TranscribeTool-dummy.m"; sourceTree = "<group>"; };
-		49C869521B29B0A282DC0F274FECC3FA /* SAMKeychain-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SAMKeychain-prefix.pch"; sourceTree = "<group>"; };
+		4F41AB94550867403257C17CB4972601 /* Pods-TranscribeTool-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TranscribeTool-Info.plist"; sourceTree = "<group>"; };
 		50D67ED59D8B4F55A388EC4D3FFFDD4B /* Pods_TranscribeTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TranscribeTool.framework; path = "Pods-TranscribeTool.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AB46226C4C406C2A092FC6F26F69835 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BFCFA88D0A0C6D5C4C121F61BB4F85E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		564A4ABEB7AB367CCCCF14ABB0069B9D /* Pods-TranscribeTool-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TranscribeTool-resources.sh"; sourceTree = "<group>"; };
+		587D556D6DD0F49AC52F463849A01938 /* SAMKeychain-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SAMKeychain-prefix.pch"; sourceTree = "<group>"; };
 		667D968278D6604A17166B4A93021689 /* SAMKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SAMKeychain.framework; path = SAMKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		691799C6CDFAF0BDB6E6FD36DB19A1BB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		8650A2D040281ADCA650792BA048C46A /* SAMKeychain.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SAMKeychain.xcconfig; sourceTree = "<group>"; };
-		8BC59FEF4CEC8927935FB060EA723CCF /* SAMKeychain-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SAMKeychain-umbrella.h"; sourceTree = "<group>"; };
+		6B347E587EE431FB0EE265233A157E60 /* Pods-TranscribeTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TranscribeTool.debug.xcconfig"; sourceTree = "<group>"; };
+		6F80F9508BC54FB7663E29426985B603 /* SAMKeychain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SAMKeychain.modulemap; sourceTree = "<group>"; };
+		6FCBC20F75178423E706001F40588F9B /* SAMKeychain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SAMKeychain-dummy.m"; sourceTree = "<group>"; };
+		7E5399057521B970E8A437901B91ABB7 /* Pods-TranscribeTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TranscribeTool.release.xcconfig"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9CA3AA0C8ACEBC012D1A1A08D3EFF6CB /* SAMKeychain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SAMKeychain-dummy.m"; sourceTree = "<group>"; };
-		9E5A7E514D0FBE294DDB07EFF2E5B232 /* Pods-TranscribeTool-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TranscribeTool-resources.sh"; sourceTree = "<group>"; };
+		990D8C17F92650B4C2E37AD39F568667 /* SAMKeychain.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SAMKeychain.xcconfig; sourceTree = "<group>"; };
+		9B94AC2C5587E841B79373A0D1F92D5D /* Pods-TranscribeTool-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TranscribeTool-frameworks.sh"; sourceTree = "<group>"; };
 		A2029E2FA1979CE7174EE53F228F01CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A5462137A5155DCDE75302E0B75EBAEB /* Pods-TranscribeTool-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TranscribeTool-dummy.m"; sourceTree = "<group>"; };
 		A5951A74082C57801B593CC89807AF50 /* SAMKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAMKeychain.m; path = Sources/SAMKeychain.m; sourceTree = "<group>"; };
-		CB5BE9C2D9D6FF8173925DE2B5150284 /* Pods-TranscribeTool.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TranscribeTool.modulemap"; sourceTree = "<group>"; };
-		CCA55339C4DEBE02FA21C85B1B3113E4 /* Pods-TranscribeTool-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TranscribeTool-umbrella.h"; sourceTree = "<group>"; };
+		BF3EE7A8A964991EB11C23C86571DAEB /* Pods-TranscribeTool-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TranscribeTool-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D413D76727073737DAA57CA60C778547 /* SAMKeychain.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SAMKeychain.bundle; path = Support/SAMKeychain.bundle; sourceTree = "<group>"; };
-		DF2E16C9CEF884D0A3D2EE0E20690C19 /* Pods-TranscribeTool-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TranscribeTool-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F5824F9D1BD8C45F75D3214BEE06871B /* Pods-TranscribeTool-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TranscribeTool-umbrella.h"; sourceTree = "<group>"; };
 		F90EBA712A3F1CF3A254392C6EFF969F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -84,28 +84,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		23300B2E913D1C55A41D575C5C2954CF /* Pods-TranscribeTool */ = {
+		53B8F3684D39F1A1CA68E587CBF7EFEB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5BFCFA88D0A0C6D5C4C121F61BB4F85E /* Info.plist */,
-				CB5BE9C2D9D6FF8173925DE2B5150284 /* Pods-TranscribeTool.modulemap */,
-				DF2E16C9CEF884D0A3D2EE0E20690C19 /* Pods-TranscribeTool-acknowledgements.markdown */,
-				0566FDDEFF3EAE0C1AADB4140F1BDCC5 /* Pods-TranscribeTool-acknowledgements.plist */,
-				4813D0A0C0AC3286554F4B2A77563B40 /* Pods-TranscribeTool-dummy.m */,
-				3B14BCADA974D7F7D1948106FBB65C69 /* Pods-TranscribeTool-frameworks.sh */,
-				9E5A7E514D0FBE294DDB07EFF2E5B232 /* Pods-TranscribeTool-resources.sh */,
-				CCA55339C4DEBE02FA21C85B1B3113E4 /* Pods-TranscribeTool-umbrella.h */,
-				3C31C72DF6CCBA46F3640A60F4E6470D /* Pods-TranscribeTool.debug.xcconfig */,
-				25E7355ED839DE64F30579B714E40C2A /* Pods-TranscribeTool.release.xcconfig */,
+				6F80F9508BC54FB7663E29426985B603 /* SAMKeychain.modulemap */,
+				990D8C17F92650B4C2E37AD39F568667 /* SAMKeychain.xcconfig */,
+				6FCBC20F75178423E706001F40588F9B /* SAMKeychain-dummy.m */,
+				29AD2784333C1839895C414892E2D112 /* SAMKeychain-Info.plist */,
+				587D556D6DD0F49AC52F463849A01938 /* SAMKeychain-prefix.pch */,
+				3A557F07B874ED63FA6A1AB15318FA9B /* SAMKeychain-umbrella.h */,
 			);
-			name = "Pods-TranscribeTool";
-			path = "Target Support Files/Pods-TranscribeTool";
+			name = "Support Files";
+			path = "../Target Support Files/SAMKeychain";
 			sourceTree = "<group>";
 		};
 		688AEB80E8620BE3B4A270FCE59FAB8C /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				23300B2E913D1C55A41D575C5C2954CF /* Pods-TranscribeTool */,
+				8097D47D74FD0F4B135CD5E56CF342C0 /* Pods-TranscribeTool */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -119,6 +115,24 @@
 				A5A5E358E286C046BA7842AE3E07EF7E /* Products */,
 				688AEB80E8620BE3B4A270FCE59FAB8C /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		8097D47D74FD0F4B135CD5E56CF342C0 /* Pods-TranscribeTool */ = {
+			isa = PBXGroup;
+			children = (
+				2D62D6F58183A64861142C63B69FB783 /* Pods-TranscribeTool.modulemap */,
+				BF3EE7A8A964991EB11C23C86571DAEB /* Pods-TranscribeTool-acknowledgements.markdown */,
+				1E6D5BF425A07663C1CE7E900359B00E /* Pods-TranscribeTool-acknowledgements.plist */,
+				A5462137A5155DCDE75302E0B75EBAEB /* Pods-TranscribeTool-dummy.m */,
+				9B94AC2C5587E841B79373A0D1F92D5D /* Pods-TranscribeTool-frameworks.sh */,
+				4F41AB94550867403257C17CB4972601 /* Pods-TranscribeTool-Info.plist */,
+				564A4ABEB7AB367CCCCF14ABB0069B9D /* Pods-TranscribeTool-resources.sh */,
+				F5824F9D1BD8C45F75D3214BEE06871B /* Pods-TranscribeTool-umbrella.h */,
+				6B347E587EE431FB0EE265233A157E60 /* Pods-TranscribeTool.debug.xcconfig */,
+				7E5399057521B970E8A437901B91ABB7 /* Pods-TranscribeTool.release.xcconfig */,
+			);
+			name = "Pods-TranscribeTool";
+			path = "Target Support Files/Pods-TranscribeTool";
 			sourceTree = "<group>";
 		};
 		96D996393384F21972E2DD81788EE22C /* Frameworks */ = {
@@ -136,20 +150,6 @@
 				667D968278D6604A17166B4A93021689 /* SAMKeychain.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		B0E3FFF1777438D25E9522EF2561497E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5AB46226C4C406C2A092FC6F26F69835 /* Info.plist */,
-				27562A7185C4E7C3F0BE269E0BDC5C71 /* SAMKeychain.modulemap */,
-				8650A2D040281ADCA650792BA048C46A /* SAMKeychain.xcconfig */,
-				9CA3AA0C8ACEBC012D1A1A08D3EFF6CB /* SAMKeychain-dummy.m */,
-				49C869521B29B0A282DC0F274FECC3FA /* SAMKeychain-prefix.pch */,
-				8BC59FEF4CEC8927935FB060EA723CCF /* SAMKeychain-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SAMKeychain";
 			sourceTree = "<group>";
 		};
 		BF4BDEF7DEC1C21CD808737A4ACDE8FB /* Pods */ = {
@@ -186,7 +186,7 @@
 				4750DDEBB30FCFB4FA63C2BC37A4214D /* SAMKeychainQuery.h */,
 				467DB29B6CE6347CBCC6F89D831B89EE /* SAMKeychainQuery.m */,
 				C193794E7F23D7B6C851A0A37A62B25D /* Resources */,
-				B0E3FFF1777438D25E9522EF2561497E /* Support Files */,
+				53B8F3684D39F1A1CA68E587CBF7EFEB /* Support Files */,
 			);
 			name = SAMKeychain;
 			path = SAMKeychain;
@@ -321,9 +321,9 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		398E810096F011427789640ACA1131AD /* Debug */ = {
+		091E36AA5551DB73E910AE47F565654C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C31C72DF6CCBA46F3640A60F4E6470D /* Pods-TranscribeTool.debug.xcconfig */;
+			baseConfigurationReference = 7E5399057521B970E8A437901B91ABB7 /* Pods-TranscribeTool.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -338,9 +338,13 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-TranscribeTool/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-TranscribeTool/Pods-TranscribeTool-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = "Target Support Files/Pods-TranscribeTool/Pods-TranscribeTool.modulemap";
@@ -354,11 +358,11 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		719F86CC38B41858C45C778DE09125C2 /* Debug */ = {
+		632DB207F943D8800181073E78CF2002 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8650A2D040281ADCA650792BA048C46A /* SAMKeychain.xcconfig */;
+			baseConfigurationReference = 990D8C17F92650B4C2E37AD39F568667 /* SAMKeychain.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -372,9 +376,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_PREFIX_HEADER = "Target Support Files/SAMKeychain/SAMKeychain-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SAMKeychain/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/SAMKeychain/SAMKeychain-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = "Target Support Files/SAMKeychain/SAMKeychain.modulemap";
 				PRODUCT_MODULE_NAME = SAMKeychain;
@@ -451,9 +459,48 @@
 			};
 			name = Debug;
 		};
-		9A6370CAE3E60992122B99C8A0FA96E7 /* Release */ = {
+		985DF58B8502C84775AC250B7E34BBF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8650A2D040281ADCA650792BA048C46A /* SAMKeychain.xcconfig */;
+			baseConfigurationReference = 6B347E587EE431FB0EE265233A157E60 /* Pods-TranscribeTool.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-TranscribeTool/Pods-TranscribeTool-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MODULEMAP_FILE = "Target Support Files/Pods-TranscribeTool/Pods-TranscribeTool.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B35DC6362ACB6B40F1430EFEABE0883B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 990D8C17F92650B4C2E37AD39F568667 /* SAMKeychain.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -467,9 +514,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_PREFIX_HEADER = "Target Support Files/SAMKeychain/SAMKeychain-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SAMKeychain/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/SAMKeychain/SAMKeychain-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = "Target Support Files/SAMKeychain/SAMKeychain.modulemap";
 				PRODUCT_MODULE_NAME = SAMKeychain;
@@ -541,41 +592,6 @@
 			};
 			name = Release;
 		};
-		FB91A6B2822366CCDAEC4FF08C210F23 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25E7355ED839DE64F30579B714E40C2A /* Pods-TranscribeTool.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-TranscribeTool/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/Pods-TranscribeTool/Pods-TranscribeTool.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -591,8 +607,8 @@
 		7BC4062A2C941E24192D320B8CB9F8E2 /* Build configuration list for PBXNativeTarget "Pods-TranscribeTool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				398E810096F011427789640ACA1131AD /* Debug */,
-				FB91A6B2822366CCDAEC4FF08C210F23 /* Release */,
+				985DF58B8502C84775AC250B7E34BBF9 /* Debug */,
+				091E36AA5551DB73E910AE47F565654C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -600,8 +616,8 @@
 		9AD5579DA6EE68EB3CE6F07AE68F24C7 /* Build configuration list for PBXNativeTarget "SAMKeychain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				719F86CC38B41858C45C778DE09125C2 /* Debug */,
-				9A6370CAE3E60992122B99C8A0FA96E7 /* Release */,
+				632DB207F943D8800181073E78CF2002 /* Debug */,
+				B35DC6362ACB6B40F1430EFEABE0883B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
