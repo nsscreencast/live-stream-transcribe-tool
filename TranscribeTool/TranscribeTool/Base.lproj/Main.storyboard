@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14295.6" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14295.6"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Add Input URL View Controller-->
@@ -21,7 +21,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="307" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Enter a publicly accessible URL here" drawsBackground="YES" id="J2u-K4-3aq">
                                             <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
@@ -58,6 +58,7 @@ DQ
                                         </buttonCell>
                                         <connections>
                                             <action selector="addButtonClicked:" target="XFe-IY-wB8" id="shu-vb-juT"/>
+                                            <binding destination="XFe-IY-wB8" name="enabled" keyPath="self.isFormEnabled" id="oGh-PL-9lF"/>
                                             <binding destination="XFe-IY-wB8" name="enabled2" keyPath="self.isURLValid" previousBinding="oGh-PL-9lF" id="4fx-31-3IW">
                                                 <dictionary key="options">
                                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -66,7 +67,6 @@ DQ
                                                     <integer key="NSNullPlaceholder" value="-1"/>
                                                 </dictionary>
                                             </binding>
-                                            <binding destination="XFe-IY-wB8" name="enabled" keyPath="self.isFormEnabled" id="oGh-PL-9lF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -98,7 +98,7 @@ DQ
         <scene sceneID="rE8-th-Z13">
             <objects>
                 <windowController id="eR7-p5-MGv" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="X35-lE-GZh">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="X35-lE-GZh">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="229" y="240" width="480" height="270"/>
@@ -175,7 +175,7 @@ DQ
                                                 <rect key="frame" x="76" y="0.0" width="160" height="22"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="optional" drawsBackground="YES" id="cSO-hB-TTh">
                                                     <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
@@ -215,7 +215,7 @@ DQ
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" width="118" minWidth="40" maxWidth="1000" id="Nul-Dz-9b3">
+                                                <tableColumn width="118" minWidth="40" maxWidth="1000" id="Nul-Dz-9b3">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Filename">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -251,7 +251,7 @@ DQ
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="318" minWidth="40" maxWidth="1000" id="rPO-IP-SiB">
+                                                <tableColumn width="318" minWidth="40" maxWidth="1000" id="rPO-IP-SiB">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="URN">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -300,7 +300,7 @@ DQ
                                     <rect key="frame" x="1" y="94" width="438" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Hnz-cD-Do2">
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Hnz-cD-Do2">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -392,6 +392,9 @@ DQ
                     <items>
                         <menuItem title="File..." id="Vf6-aD-cd7">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="addInputFromFileClicked:" target="EUG-Uh-I7Y" id="ehd-3Q-qza"/>
+                            </connections>
                         </menuItem>
                         <menuItem title="URL..." id="Uu5-5c-Q9G">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -1087,7 +1090,7 @@ DQ
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="OrderListWindowController" customModule="TranscribeTool" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="TranscribeTool" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="TranscribeTool" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -1172,7 +1175,7 @@ DQ
         <scene sceneID="hA3-27-LJ5">
             <objects>
                 <windowController id="qZA-SM-Bll" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="G4E-5C-bSU">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="G4E-5C-bSU">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="425" y="462" width="480" height="269"/>
@@ -1215,7 +1218,7 @@ DQ
                                                 <rect key="frame" x="126" y="0.0" width="274" height="22"/>
                                                 <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="mnP-dP-NxP">
                                                     <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <allowedInputSourceLocales>
                                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
@@ -1250,7 +1253,7 @@ DQ
                                                 <rect key="frame" x="126" y="0.0" width="274" height="22"/>
                                                 <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="WOE-Np-eVb">
                                                     <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <allowedInputSourceLocales>
                                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
@@ -1285,7 +1288,7 @@ DQ
                                                 <rect key="frame" x="126" y="0.0" width="274" height="22"/>
                                                 <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="cI1-V1-wJ2">
                                                     <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <allowedInputSourceLocales>
                                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
@@ -1320,7 +1323,7 @@ DQ
                                                 <rect key="frame" x="126" y="0.0" width="274" height="22"/>
                                                 <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="sYO-8Q-SzX">
                                                     <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <allowedInputSourceLocales>
                                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
@@ -1420,7 +1423,7 @@ DQ
         <scene sceneID="7tf-Dy-9ZK">
             <objects>
                 <windowController id="Y85-zQ-Fw8" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="sMQ-XI-hih">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="sMQ-XI-hih">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="425" y="461" width="480" height="270"/>
@@ -1669,6 +1672,71 @@ DQ
                 <arrayController id="fd3-1t-PRK"/>
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
+        </scene>
+        <!--Upload File View Controller-->
+        <scene sceneID="D8y-Wn-T2w">
+            <objects>
+                <viewController storyboardIdentifier="UploadFileViewController" id="mno-ce-j2g" customClass="UploadFileViewController" customModule="TranscribeTool" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="TD6-PF-OsT">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="105"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xh2-RY-zYt">
+                                <rect key="frame" x="354" y="6" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cEO-F7-unL">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancelClicked:" target="mno-ce-j2g" id="Whf-pg-ndN"/>
+                                </connections>
+                            </button>
+                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="YoA-t2-W05">
+                                <rect key="frame" x="22" y="43" width="408" height="20"/>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BdA-r0-Enu">
+                                <rect key="frame" x="20" y="70" width="119" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Uploading xxxxx...." id="XOx-qh-MjA">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ilY-SC-fjR">
+                                <rect key="frame" x="32" y="27" width="84" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="n KB of m KB" id="qpv-Y8-tdQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YoA-t2-W05" secondAttribute="trailing" constant="20" id="3dC-MT-MV4"/>
+                            <constraint firstItem="BdA-r0-Enu" firstAttribute="top" secondItem="TD6-PF-OsT" secondAttribute="top" constant="18" id="7sc-Ts-fhe"/>
+                            <constraint firstItem="Xh2-RY-zYt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ilY-SC-fjR" secondAttribute="trailing" constant="12" id="DmT-BR-Rlj"/>
+                            <constraint firstItem="YoA-t2-W05" firstAttribute="leading" secondItem="BdA-r0-Enu" secondAttribute="leading" id="S0T-Bj-dbV"/>
+                            <constraint firstItem="BdA-r0-Enu" firstAttribute="leading" secondItem="TD6-PF-OsT" secondAttribute="leading" constant="22" id="Vuf-xG-ylM"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BdA-r0-Enu" secondAttribute="trailing" constant="20" symbolic="YES" id="dV1-IQ-dS3"/>
+                            <constraint firstAttribute="trailing" secondItem="Xh2-RY-zYt" secondAttribute="trailing" constant="20" id="gXG-7J-cWm"/>
+                            <constraint firstItem="ilY-SC-fjR" firstAttribute="top" secondItem="YoA-t2-W05" secondAttribute="bottom" id="hWU-4k-1Ns"/>
+                            <constraint firstItem="ilY-SC-fjR" firstAttribute="leading" secondItem="YoA-t2-W05" secondAttribute="leading" constant="12" id="vDt-s8-Yyk"/>
+                            <constraint firstItem="YoA-t2-W05" firstAttribute="top" secondItem="BdA-r0-Enu" secondAttribute="bottom" constant="8" id="xcF-tn-rnt"/>
+                            <constraint firstItem="Xh2-RY-zYt" firstAttribute="top" secondItem="YoA-t2-W05" secondAttribute="bottom" constant="10" id="xsb-nT-ctW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressIndicator" destination="YoA-t2-W05" id="He4-eu-4EM"/>
+                        <outlet property="statsLabel" destination="ilY-SC-fjR" id="Y96-RL-3bQ"/>
+                        <outlet property="titleLabel" destination="BdA-r0-Enu" id="3PW-uk-68o"/>
+                    </connections>
+                </viewController>
+                <customObject id="ei3-eR-5Fj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1265" y="263.5"/>
         </scene>
     </scenes>
     <resources>

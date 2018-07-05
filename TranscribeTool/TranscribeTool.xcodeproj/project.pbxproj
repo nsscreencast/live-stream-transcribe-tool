@@ -14,6 +14,7 @@
 		B53CDF9220AF48DB00FE921A /* NewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CDF9120AF48DB00FE921A /* NewOrderViewController.swift */; };
 		B53CDF9420AF4C7E00FE921A /* AddInputURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CDF9320AF4C7E00FE921A /* AddInputURLViewController.swift */; };
 		B53CDF9620AF528900FE921A /* OrderInputTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CDF9520AF528900FE921A /* OrderInputTableRow.swift */; };
+		B540200520EE8D2A00212C3C /* UploadFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540200420EE8D2A00212C3C /* UploadFileViewController.swift */; };
 		B5B524EB209CCA3E00A837F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B524EA209CCA3E00A837F6 /* AppDelegate.swift */; };
 		B5B524ED209CCA3E00A837F6 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B524EC209CCA3E00A837F6 /* OrderListViewController.swift */; };
 		B5B524EF209CCA3E00A837F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5B524EE209CCA3E00A837F6 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		B53CDF9120AF48DB00FE921A /* NewOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderViewController.swift; sourceTree = "<group>"; };
 		B53CDF9320AF4C7E00FE921A /* AddInputURLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInputURLViewController.swift; sourceTree = "<group>"; };
 		B53CDF9520AF528900FE921A /* OrderInputTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInputTableRow.swift; sourceTree = "<group>"; };
+		B540200420EE8D2A00212C3C /* UploadFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileViewController.swift; sourceTree = "<group>"; };
 		B5B524E7209CCA3E00A837F6 /* TranscribeTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranscribeTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B524EA209CCA3E00A837F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5B524EC209CCA3E00A837F6 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				B53CDF9120AF48DB00FE921A /* NewOrderViewController.swift */,
 				B53CDF9320AF4C7E00FE921A /* AddInputURLViewController.swift */,
 				B53CDF9520AF528900FE921A /* OrderInputTableRow.swift */,
+				B540200420EE8D2A00212C3C /* UploadFileViewController.swift */,
 			);
 			path = "New Order";
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				B53CDF9220AF48DB00FE921A /* NewOrderViewController.swift in Sources */,
 				B5B524ED209CCA3E00A837F6 /* OrderListViewController.swift in Sources */,
 				B5B524FE209CD46B00A837F6 /* RevCredentials.swift in Sources */,
+				B540200520EE8D2A00212C3C /* UploadFileViewController.swift in Sources */,
 				B5B524EB209CCA3E00A837F6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
