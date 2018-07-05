@@ -32,6 +32,15 @@ public struct RevKitError {
 
     static var domain: String = "RevKitErrorDomain"
     
+    static func requestFailed(url: URL, message: String) -> NSError {
+        return NSError(domain: domain, code: Codes.requestFailed,
+                       userInfo: [
+                        NSURLErrorFailingURLErrorKey: url,
+                        NSLocalizedFailureReasonErrorKey: "The request was invalid.",
+                        NSLocalizedDescriptionKey: message
+            ])
+    }
+    
     static func resourceNotFound(url: URL) -> NSError {
         return NSError(domain: domain, code: Codes.notFound,
                        userInfo: [
@@ -75,7 +84,7 @@ public enum RevEnvironment : String {
     }
 }
 
-public class RevClient {
+public class RevClient : NSObject {
     
     public enum Result<T> {
         case success(T)
@@ -86,6 +95,21 @@ public class RevClient {
     private let userKey: String
     private let environment: RevEnvironment
     
+    struct UploadStatus {
+        var progress: Progress
+        var response: HTTPURLResponse? = nil
+        var responseData: Data
+        var completion: (Result<String>) -> Void
+        
+        init(progress: Progress, completion: @escaping (Result<String>) -> Void) {
+            self.progress = progress
+            self.completion = completion
+            responseData = Data()
+        }
+    }
+    
+    private var uploadStatus: UploadStatus?
+    
     private let sessionConfiguration = URLSessionConfiguration.default
     private lazy var session: URLSession = { [sessionConfiguration] in
        return URLSession(configuration: sessionConfiguration)
@@ -95,6 +119,7 @@ public class RevClient {
         self.clientKey = clientKey
         self.userKey = userKey
         self.environment = environment
+        super.init()
     }
     
     public func uploadInput(from remoteURL: URL, filename: String? = nil, contentType: String? = nil, completion: @escaping (Result<String>) -> Void) {
@@ -120,6 +145,24 @@ public class RevClient {
         execute(request: request, httpSuccess: { (http, data) -> Result<String> in
             return self.extractHTTPLocation(http: http)
         }, completion: completion)
+    }
+    
+    public func uploadInput(file fileURL: URL, contentType: String? = nil, progress: Progress, completion: @escaping (Result<String>) -> Void) -> URLSessionUploadTask {
+        guard uploadStatus == nil else {
+            fatalError("There is already a progress in use. To upload multiple files simultaneously, use separate instances of RevClient.")
+        }
+        let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
+        var request = URLRequest(url: environment.baseURL.appendingPathComponent("inputs"))
+        addAuthorizationHeader(&request)
+        let filename = fileURL.lastPathComponent
+        request.httpMethod = "POST"
+        request.setValue("attachment; filename=\"\(filename)\"", forHTTPHeaderField: "Content-Disposition")
+        request.setValue(contentType ?? "video/mp4", forHTTPHeaderField: "Content-Type")
+        
+        let task = session.uploadTask(with: request, fromFile: fileURL)
+        uploadStatus = UploadStatus(progress: progress, completion: completion)
+        task.resume()
+        return task
     }
     
     public func submitOrder<Params : OrderParams>(params: Params, completion: @escaping (Result<String>) -> Void) {
@@ -238,5 +281,45 @@ public class RevClient {
         } catch {
             return RevKitError.unexpectedError()
         }
+    }
+}
+
+extension RevClient : URLSessionDataDelegate {
+    
+    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        guard let uploadStatus = uploadStatus else { fatalError() }
+        guard let response = uploadStatus.response else { return }
+        
+        let result: Result<String>
+        if let error = error {
+            result = .failed(error)
+        } else if response.statusCode == 201 {
+            result = .success("OK")
+        } else {
+            let bodyString = String(data: uploadStatus.responseData, encoding: .utf8) ?? "<no response>"
+            let error = RevKitError.requestFailed(url: task.currentRequest!.url!, message: bodyString)
+            result = .failed(error)
+        }
+        
+        uploadStatus.completion(result)
+        self.uploadStatus = nil
+    }
+    
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        guard let httpResponse = response as? HTTPURLResponse else { return }
+        print("HTTP Response \(httpResponse.statusCode)   Headers: %@", httpResponse.allHeaderFields)
+        uploadStatus?.response = httpResponse
+        completionHandler(.allow)
+    }
+    
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        uploadStatus?.responseData.append(data)
+    }
+    
+    public func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+        guard let progress = uploadStatus?.progress else { return }
+        progress.completedUnitCount = totalBytesSent
+        progress.totalUnitCount = totalBytesExpectedToSend
+        print("Progress: \(progress.fractionCompleted)")
     }
 }
