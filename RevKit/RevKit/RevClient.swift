@@ -294,7 +294,12 @@ extension RevClient : URLSessionDataDelegate {
         if let error = error {
             result = .failed(error)
         } else if response.statusCode == 201 {
-            result = .success("OK")
+            if let location = response.allHeaderFields["Location"] as? String {
+                result = .success(location)
+            } else {
+                let error = RevKitError.unexpectedError()
+                result = .failed(error)
+            }
         } else {
             let bodyString = String(data: uploadStatus.responseData, encoding: .utf8) ?? "<no response>"
             let error = RevKitError.requestFailed(url: task.currentRequest!.url!, message: bodyString)
